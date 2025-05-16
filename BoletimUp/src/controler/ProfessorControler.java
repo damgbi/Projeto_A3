@@ -1,5 +1,5 @@
 
-package controller;
+package controler;
 
 import model.Professor;
 import DAO.ProfessorDAO;

@@ -1,13 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+
 package DAO;
 
-/**
- *
- * @author User
- */
+import model.Professor;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProfessorDAO {
+    private List<Professor> professorDAO = new ArrayList<Professor>();
     
+    public void adicionarprofessorDAO(Professor professor){
+        professorDAO.add(professor);
+    }
 }

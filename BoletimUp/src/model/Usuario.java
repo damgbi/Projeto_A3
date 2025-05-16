@@ -1,4 +1,4 @@
-package escola;
+package model;
 
 public class Usuario {
     protected String nome;

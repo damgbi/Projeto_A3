@@ -1,4 +1,4 @@
-package com.mycompany.boletimup.Cadastro;
+package model;
 
 public class Cadastro {
         
@@ -70,11 +70,11 @@ public class Cadastro {
         }
         
         private boolean validadorEmail(){
-        
+            return true;
         }
                
         private boolean ValidadorMatricula(){
-
+            return true;
 }
         
 }

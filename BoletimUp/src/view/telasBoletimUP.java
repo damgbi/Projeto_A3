@@ -11,9 +11,7 @@ public class telasBoletimUP extends javax.swing.JFrame {
     public telasBoletimUP() {
         initComponents();
         
-        txtAvaliacao1.setDocument(new campotxtDouble());
-        txtAvaliacao2.setDocument(new campotxtDouble());
-        txtAvaliacao3.setDocument(new campotxtDouble());
+        
         
         txtMatricula.setDocument(new campotxtMatricula());
     }
@@ -32,10 +30,6 @@ public class telasBoletimUP extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        inicio = new javax.swing.JPanel();
-        localizationPane1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         NotasPresenca = new javax.swing.JPanel();
         localizationPane2 = new javax.swing.JPanel();
         borderPane1 = new javax.swing.JPanel();
@@ -44,19 +38,29 @@ public class telasBoletimUP extends javax.swing.JFrame {
         RegistrarAluno = new javax.swing.JPanel();
         localizationPane = new javax.swing.JPanel();
         borderPane = new javax.swing.JPanel();
-        lblInsiraDados = new javax.swing.JLabel();
         formPane = new javax.swing.JPanel();
         lblNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         lblMatricula = new javax.swing.JLabel();
         txtMatricula = new javax.swing.JTextField();
-        lblAvaliacao1 = new javax.swing.JLabel();
-        txtAvaliacao1 = new javax.swing.JTextField();
-        lblAvaliacao2 = new javax.swing.JLabel();
-        txtAvaliacao2 = new javax.swing.JTextField();
-        lblAvaliacao3 = new javax.swing.JLabel();
-        txtAvaliacao3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        lblMatricula1 = new javax.swing.JLabel();
+        txtNome1 = new javax.swing.JTextField();
+        btnEntrar = new javax.swing.JButton();
+        lblInsiraDados = new javax.swing.JLabel();
+        RegistrarNota = new javax.swing.JPanel();
+        localizationPane1 = new javax.swing.JPanel();
+        borderPane2 = new javax.swing.JPanel();
+        formPane1 = new javax.swing.JPanel();
+        lblNome1 = new javax.swing.JLabel();
+        txtNome2 = new javax.swing.JTextField();
+        lblMatricula2 = new javax.swing.JLabel();
+        txtMatricula1 = new javax.swing.JTextField();
+        lblMatricula3 = new javax.swing.JLabel();
+        txtNome3 = new javax.swing.JTextField();
+        btnEntrar1 = new javax.swing.JButton();
+        lblMatricula4 = new javax.swing.JLabel();
+        txtNome4 = new javax.swing.JTextField();
+        lblInsiraDados1 = new javax.swing.JLabel();
         RegistrarPresenca = new javax.swing.JPanel();
         localizationPane3 = new javax.swing.JPanel();
         borderPane3 = new javax.swing.JPanel();
@@ -66,60 +70,6 @@ public class telasBoletimUP extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-
-        inicio.setBackground(new java.awt.Color(204, 255, 204));
-
-        localizationPane1.setOpaque(false);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/BoletimUpIcon.png"))); // NOI18N
-
-        javax.swing.GroupLayout localizationPane1Layout = new javax.swing.GroupLayout(localizationPane1);
-        localizationPane1.setLayout(localizationPane1Layout);
-        localizationPane1Layout.setHorizontalGroup(
-            localizationPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, localizationPane1Layout.createSequentialGroup()
-                .addContainerGap(502, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(36, 36, 36))
-        );
-        localizationPane1Layout.setVerticalGroup(
-            localizationPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(localizationPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(634, Short.MAX_VALUE))
-        );
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/backgroundLoginCadastro.png"))); // NOI18N
-
-        javax.swing.GroupLayout inicioLayout = new javax.swing.GroupLayout(inicio);
-        inicio.setLayout(inicioLayout);
-        inicioLayout.setHorizontalGroup(
-            inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(inicioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(localizationPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(inicioLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        inicioLayout.setVerticalGroup(
-            inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(inicioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(localizationPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(inicioLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-
-        jTabbedPane1.addTab("Início", inicio);
 
         NotasPresenca.setBackground(new java.awt.Color(204, 255, 204));
         NotasPresenca.setLayout(new java.awt.GridBagLayout());
@@ -194,14 +144,11 @@ public class telasBoletimUP extends javax.swing.JFrame {
 
         borderPane.setBackground(new java.awt.Color(255, 255, 255));
         borderPane.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        borderPane.setOpaque(false);
-
-        lblInsiraDados.setBackground(new java.awt.Color(230, 240, 240));
-        lblInsiraDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/InsiraOsDados_resized.png"))); // NOI18N
+        borderPane.setPreferredSize(new java.awt.Dimension(500, 543));
 
         formPane.setOpaque(false);
 
-        lblNome.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblNome.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblNome.setText("Nome:");
 
         txtNome.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -218,8 +165,8 @@ public class telasBoletimUP extends javax.swing.JFrame {
             }
         });
 
-        lblMatricula.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblMatricula.setText("Matrícula:");
+        lblMatricula.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblMatricula.setText("E-mail");
 
         txtMatricula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtMatricula.setToolTipText("");
@@ -230,52 +177,31 @@ public class telasBoletimUP extends javax.swing.JFrame {
             }
         });
 
-        lblAvaliacao1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblAvaliacao1.setText("1º Avaliação:");
+        lblMatricula1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblMatricula1.setText("Matrícula:");
 
-        txtAvaliacao1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtAvaliacao1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtAvaliacao1.setToolTipText("");
-        txtAvaliacao1.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
-        txtAvaliacao1.addActionListener(new java.awt.event.ActionListener() {
+        txtNome1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtNome1.setToolTipText("Nome do Aluno");
+        txtNome1.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
+        txtNome1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNome1FocusGained(evt);
+            }
+        });
+        txtNome1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAvaliacao1ActionPerformed(evt);
+                txtNome1ActionPerformed(evt);
             }
         });
 
-        lblAvaliacao2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblAvaliacao2.setText("2º Avaliação:");
-
-        txtAvaliacao2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtAvaliacao2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtAvaliacao2.setToolTipText("");
-        txtAvaliacao2.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
-        txtAvaliacao2.addActionListener(new java.awt.event.ActionListener() {
+        btnEntrar.setBackground(new java.awt.Color(102, 255, 102));
+        btnEntrar.setFont(new java.awt.Font("MS UI Gothic", 1, 18)); // NOI18N
+        btnEntrar.setText("Registrar Aluno");
+        btnEntrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnEntrar.setBorderPainted(false);
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAvaliacao2ActionPerformed(evt);
-            }
-        });
-
-        lblAvaliacao3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblAvaliacao3.setText("3º Avaliação:");
-
-        txtAvaliacao3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtAvaliacao3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtAvaliacao3.setToolTipText("");
-        txtAvaliacao3.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
-        txtAvaliacao3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAvaliacao3ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setBackground(new java.awt.Color(0, 133, 0));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jButton1.setText("Registrar Aluno");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEntrarActionPerformed(evt);
             }
         });
 
@@ -284,59 +210,43 @@ public class telasBoletimUP extends javax.swing.JFrame {
         formPaneLayout.setHorizontalGroup(
             formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formPaneLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
                 .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(formPaneLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(formPaneLayout.createSequentialGroup()
-                                .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMatricula)
-                                    .addComponent(lblNome))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(formPaneLayout.createSequentialGroup()
-                                .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblAvaliacao2)
-                                    .addComponent(lblAvaliacao1)
-                                    .addComponent(lblAvaliacao3))
-                                .addGap(18, 18, 18)
-                                .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAvaliacao1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAvaliacao2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAvaliacao3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNome1, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                            .addComponent(lblMatricula)
+                            .addComponent(txtMatricula))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(formPaneLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMatricula1)
+                            .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(39, Short.MAX_VALUE))))
+            .addGroup(formPaneLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         formPaneLayout.setVerticalGroup(
             formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formPaneLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNome)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMatricula)
-                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAvaliacao1)
-                    .addComponent(txtAvaliacao1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAvaliacao2)
-                    .addComponent(txtAvaliacao2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(formPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAvaliacao3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAvaliacao3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(50, 50, 50)
+                .addComponent(lblNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblMatricula1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblMatricula)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout borderPaneLayout = new javax.swing.GroupLayout(borderPane);
@@ -344,20 +254,16 @@ public class telasBoletimUP extends javax.swing.JFrame {
         borderPaneLayout.setHorizontalGroup(
             borderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(borderPaneLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(borderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(formPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblInsiraDados, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(80, 80, 80)
+                .addComponent(formPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         borderPaneLayout.setVerticalGroup(
             borderPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(borderPaneLayout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
-                .addComponent(lblInsiraDados)
-                .addGap(18, 18, 18)
+                .addGap(17, 17, 17)
                 .addComponent(formPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout localizationPaneLayout = new javax.swing.GroupLayout(localizationPane);
@@ -365,28 +271,231 @@ public class telasBoletimUP extends javax.swing.JFrame {
         localizationPaneLayout.setHorizontalGroup(
             localizationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(localizationPaneLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addComponent(borderPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         localizationPaneLayout.setVerticalGroup(
             localizationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(localizationPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(borderPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 48;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 9;
         gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(75, 79, 51, 77);
+        gridBagConstraints.insets = new java.awt.Insets(18, 92, 56, 92);
         RegistrarAluno.add(localizationPane, gridBagConstraints);
 
+        lblInsiraDados.setBackground(new java.awt.Color(230, 240, 240));
+        lblInsiraDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/assets/InsiraOsDados_resized.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 189, 0, 0);
+        RegistrarAluno.add(lblInsiraDados, gridBagConstraints);
+
         jTabbedPane1.addTab("Registrar Aluno", RegistrarAluno);
+
+        RegistrarNota.setBackground(new java.awt.Color(204, 255, 204));
+        RegistrarNota.setLayout(new java.awt.GridBagLayout());
+
+        localizationPane1.setOpaque(false);
+
+        borderPane2.setBackground(new java.awt.Color(255, 255, 255));
+        borderPane2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        borderPane2.setPreferredSize(new java.awt.Dimension(500, 543));
+
+        formPane1.setOpaque(false);
+
+        lblNome1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblNome1.setText("Nota A1");
+
+        txtNome2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtNome2.setToolTipText("Nome do Aluno");
+        txtNome2.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
+        txtNome2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNome2FocusGained(evt);
+            }
+        });
+        txtNome2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNome2ActionPerformed(evt);
+            }
+        });
+
+        lblMatricula2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblMatricula2.setText("Nota A2");
+
+        txtMatricula1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtMatricula1.setToolTipText("");
+        txtMatricula1.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
+        txtMatricula1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMatricula1ActionPerformed(evt);
+            }
+        });
+
+        lblMatricula3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblMatricula3.setText("Matrícula:");
+
+        txtNome3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtNome3.setToolTipText("Nome do Aluno");
+        txtNome3.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
+        txtNome3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNome3FocusGained(evt);
+            }
+        });
+        txtNome3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNome3ActionPerformed(evt);
+            }
+        });
+
+        btnEntrar1.setBackground(new java.awt.Color(102, 255, 102));
+        btnEntrar1.setFont(new java.awt.Font("MS UI Gothic", 1, 18)); // NOI18N
+        btnEntrar1.setText("Registrar Nota");
+        btnEntrar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnEntrar1.setBorderPainted(false);
+        btnEntrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrar1ActionPerformed(evt);
+            }
+        });
+
+        lblMatricula4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblMatricula4.setText("Nota A3");
+
+        txtNome4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtNome4.setToolTipText("Nome do Aluno");
+        txtNome4.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
+        txtNome4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNome4FocusGained(evt);
+            }
+        });
+        txtNome4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNome4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout formPane1Layout = new javax.swing.GroupLayout(formPane1);
+        formPane1.setLayout(formPane1Layout);
+        formPane1Layout.setHorizontalGroup(
+            formPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formPane1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(formPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(formPane1Layout.createSequentialGroup()
+                        .addGroup(formPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMatricula3)
+                            .addComponent(lblNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(formPane1Layout.createSequentialGroup()
+                        .addGroup(formPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(formPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtNome2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblMatricula4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblMatricula2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNome4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                .addComponent(txtNome3, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(txtMatricula1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 37, Short.MAX_VALUE))))
+            .addGroup(formPane1Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(btnEntrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        formPane1Layout.setVerticalGroup(
+            formPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblMatricula3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtMatricula1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblNome1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblMatricula2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblMatricula4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(btnEntrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+        );
+
+        javax.swing.GroupLayout borderPane2Layout = new javax.swing.GroupLayout(borderPane2);
+        borderPane2.setLayout(borderPane2Layout);
+        borderPane2Layout.setHorizontalGroup(
+            borderPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(borderPane2Layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(formPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        borderPane2Layout.setVerticalGroup(
+            borderPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(borderPane2Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(formPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout localizationPane1Layout = new javax.swing.GroupLayout(localizationPane1);
+        localizationPane1.setLayout(localizationPane1Layout);
+        localizationPane1Layout.setHorizontalGroup(
+            localizationPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(localizationPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(borderPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        localizationPane1Layout.setVerticalGroup(
+            localizationPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(localizationPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(borderPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 9;
+        gridBagConstraints.ipady = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 92, 56, 92);
+        RegistrarNota.add(localizationPane1, gridBagConstraints);
+
+        lblInsiraDados1.setBackground(new java.awt.Color(230, 240, 240));
+        lblInsiraDados1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/assets/InsiraOsDados_resized.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 189, 0, 0);
+        RegistrarNota.add(lblInsiraDados1, gridBagConstraints);
+
+        jTabbedPane1.addTab("Registrar Nota", RegistrarNota);
 
         RegistrarPresenca.setBackground(new java.awt.Color(204, 255, 204));
         RegistrarPresenca.setLayout(new java.awt.GridBagLayout());
@@ -470,36 +579,64 @@ public class telasBoletimUP extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
-
-    private void txtMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatriculaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMatriculaActionPerformed
 
     private void txtNomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeFocusGained
 
-    private void txtAvaliacao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAvaliacao1ActionPerformed
+    private void txtMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatriculaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAvaliacao1ActionPerformed
+    }//GEN-LAST:event_txtMatriculaActionPerformed
 
-    private void txtAvaliacao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAvaliacao2ActionPerformed
+    private void txtNome1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNome1FocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAvaliacao2ActionPerformed
+    }//GEN-LAST:event_txtNome1FocusGained
 
-    private void txtAvaliacao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAvaliacao3ActionPerformed
+    private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAvaliacao3ActionPerformed
+    }//GEN-LAST:event_txtNome1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
+    private void txtNome2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNome2FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNome2FocusGained
+
+    private void txtNome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNome2ActionPerformed
+
+    private void txtMatricula1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatricula1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMatricula1ActionPerformed
+
+    private void txtNome3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNome3FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNome3FocusGained
+
+    private void txtNome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNome3ActionPerformed
+
+    private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEntrar1ActionPerformed
+
+    private void txtNome4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNome4FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNome4FocusGained
+
+    private void txtNome4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNome4ActionPerformed
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -541,24 +678,28 @@ public class telasBoletimUP extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel NotasPresenca;
     private javax.swing.JPanel RegistrarAluno;
+    private javax.swing.JPanel RegistrarNota;
     private javax.swing.JPanel RegistrarPresenca;
     private javax.swing.JPanel borderPane;
     private javax.swing.JPanel borderPane1;
+    private javax.swing.JPanel borderPane2;
     private javax.swing.JPanel borderPane3;
+    private javax.swing.JButton btnEntrar;
+    private javax.swing.JButton btnEntrar1;
     private javax.swing.JPanel formPane;
-    private javax.swing.JPanel inicio;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel formPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblAvaliacao1;
-    private javax.swing.JLabel lblAvaliacao2;
-    private javax.swing.JLabel lblAvaliacao3;
     private javax.swing.JLabel lblInsiraDados;
+    private javax.swing.JLabel lblInsiraDados1;
     private javax.swing.JLabel lblMatricula;
+    private javax.swing.JLabel lblMatricula1;
+    private javax.swing.JLabel lblMatricula2;
+    private javax.swing.JLabel lblMatricula3;
+    private javax.swing.JLabel lblMatricula4;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblNome1;
     private javax.swing.JPanel localizationPane;
     private javax.swing.JPanel localizationPane1;
     private javax.swing.JPanel localizationPane2;
@@ -566,10 +707,12 @@ public class telasBoletimUP extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollPanel;
     private javax.swing.JScrollPane scrollPanel2;
     private javax.swing.JTable tableAlunos;
-    private javax.swing.JTextField txtAvaliacao1;
-    private javax.swing.JTextField txtAvaliacao2;
-    private javax.swing.JTextField txtAvaliacao3;
     private javax.swing.JTextField txtMatricula;
+    private javax.swing.JTextField txtMatricula1;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNome1;
+    private javax.swing.JTextField txtNome2;
+    private javax.swing.JTextField txtNome3;
+    private javax.swing.JTextField txtNome4;
     // End of variables declaration//GEN-END:variables
 }

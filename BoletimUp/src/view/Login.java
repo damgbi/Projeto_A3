@@ -1,6 +1,10 @@
 
 package view;
 
+import java.util.regex.*;
+import controler.campotxtEmail;
+import javax.swing.JOptionPane;
+import controler.campotxtSenha;
 
 public class Login extends javax.swing.JFrame {
 
@@ -77,7 +81,7 @@ public class Login extends javax.swing.JFrame {
         lblEmail.setText("E-mail");
 
         txtEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtEmail.setToolTipText("Nome do Aluno");
+        txtEmail.setToolTipText("Insira seu email");
         txtEmail.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -227,7 +231,20 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:         
+        campotxtEmail validarEmail = new campotxtEmail();
+        campotxtSenha validarSenha =  new campotxtSenha();
+        
+        String email = txtEmail.getText().trim();
+        char[] charSenha = pswdSenha.getPassword();
+        String senha = new String(charSenha);
+        
+        if(validarEmail.isEmailValido(email) && validarSenha.isSenhaValida(senha)){
+             telasBoletimUP telaProf = new telasBoletimUP();
+             telaProf.setVisible(true);
+        } else {
+             JOptionPane.showMessageDialog(this, "Email/senha inválido", "Erro", JOptionPane.ERROR_MESSAGE);
+        }            
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
@@ -240,6 +257,8 @@ public class Login extends javax.swing.JFrame {
 
     private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
         // TODO add your handling code here:
+        Cadastro telaCadastro = new Cadastro();
+        telaCadastro.setVisible(true);
     }//GEN-LAST:event_btnEntrar1ActionPerformed
 
     /**

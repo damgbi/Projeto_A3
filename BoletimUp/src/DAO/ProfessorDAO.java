@@ -1,5 +1,3 @@
-
-
 package DAO;
 
 import model.Professor;

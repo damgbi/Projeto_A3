@@ -1,12 +1,19 @@
 
 package view;
 
+import controler.AlunoControler;
+import controler.UsuarioControler;
+import controler.campotxtEmail;
+import javax.swing.JOptionPane;
 
 public class Cadastro extends javax.swing.JFrame {
 
    
     public Cadastro() {
         initComponents();
+        
+        
+        
     }
 
     /**
@@ -40,6 +47,7 @@ public class Cadastro extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         lblNome1 = new javax.swing.JLabel();
+        btnVoltarLogin = new javax.swing.JButton();
         lblCadastrese = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,7 +92,7 @@ public class Cadastro extends javax.swing.JFrame {
         lblNome.setText("Nome ");
 
         txtNome.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtNome.setToolTipText("Nome do Aluno");
+        txtNome.setToolTipText("Seu Nome");
         txtNome.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
         txtNome.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -101,7 +109,7 @@ public class Cadastro extends javax.swing.JFrame {
         lblSobrenome.setText("Sobrenome");
 
         txtSobrenome.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtSobrenome.setToolTipText("Nome do Aluno");
+        txtSobrenome.setToolTipText("Seu Sobrenome");
         txtSobrenome.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
         txtSobrenome.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -118,7 +126,7 @@ public class Cadastro extends javax.swing.JFrame {
         lblEmail.setText("E-mail");
 
         txtEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtEmail.setToolTipText("Nome do Aluno");
+        txtEmail.setToolTipText("E-mail ex: exemplo@gmail.com");
         txtEmail.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -134,12 +142,13 @@ public class Cadastro extends javax.swing.JFrame {
         lblSenhaCadastrar.setFont(new java.awt.Font("MS UI Gothic", 1, 24)); // NOI18N
         lblSenhaCadastrar.setText("Senha");
 
+        pswdSenhaCadastrar.setToolTipText("Insira sua Senha");
         pswdSenhaCadastrar.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
 
         lblConfirmeSenha.setFont(new java.awt.Font("MS UI Gothic", 1, 24)); // NOI18N
         lblConfirmeSenha.setText("Confirme a senha:");
 
-        pswdConfirmeSenha.setToolTipText("");
+        pswdConfirmeSenha.setToolTipText("Confirme sua Senha");
         pswdConfirmeSenha.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
         pswdConfirmeSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +159,7 @@ public class Cadastro extends javax.swing.JFrame {
         btnCadastrar.setBackground(new java.awt.Color(102, 255, 102));
         btnCadastrar.setFont(new java.awt.Font("MS UI Gothic", 1, 18)); // NOI18N
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.setToolTipText("");
         btnCadastrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         btnCadastrar.setBorderPainted(false);
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -161,6 +171,7 @@ public class Cadastro extends javax.swing.JFrame {
         tipoUsuario.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jRadioButton1.setText("Professor");
+        jRadioButton1.setToolTipText("botão Professor");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
@@ -170,9 +181,22 @@ public class Cadastro extends javax.swing.JFrame {
         tipoUsuario.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jRadioButton2.setText("Aluno");
+        jRadioButton2.setToolTipText("botão Aluno");
 
         lblNome1.setFont(new java.awt.Font("MS UI Gothic", 1, 24)); // NOI18N
         lblNome1.setText("Você é :");
+
+        btnVoltarLogin.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
+        btnVoltarLogin.setForeground(new java.awt.Color(102, 102, 102));
+        btnVoltarLogin.setText("Voltar para Login");
+        btnVoltarLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnVoltarLogin.setBorderPainted(false);
+        btnVoltarLogin.setContentAreaFilled(false);
+        btnVoltarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cadastroPanelLayout = new javax.swing.GroupLayout(cadastroPanel);
         cadastroPanel.setLayout(cadastroPanelLayout);
@@ -206,8 +230,13 @@ public class Cadastro extends javax.swing.JFrame {
                                 .addComponent(jRadioButton2)))
                         .addGap(0, 115, Short.MAX_VALUE))))
             .addGroup(cadastroPanelLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(cadastroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cadastroPanelLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cadastroPanelLayout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(btnVoltarLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cadastroPanelLayout.setVerticalGroup(
@@ -242,8 +271,16 @@ public class Cadastro extends javax.swing.JFrame {
                 .addComponent(pswdConfirmeSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addGap(3, 3, 3)
+                .addComponent(btnVoltarLogin)
+                .addContainerGap())
         );
+
+        txtEmail.getAccessibleContext().setAccessibleName("Email");
+        pswdSenhaCadastrar.getAccessibleContext().setAccessibleName("Senha");
+        pswdConfirmeSenha.getAccessibleContext().setAccessibleName("Confirme a senha");
+        btnCadastrar.getAccessibleContext().setAccessibleName("Botão Cadastrar");
+        btnCadastrar.getAccessibleContext().setAccessibleDescription("Botão Cadastrar");
 
         lblCadastrese.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 36)); // NOI18N
         lblCadastrese.setText("Cadastre-se");
@@ -280,6 +317,8 @@ public class Cadastro extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        cadastroPanel.getAccessibleContext().setAccessibleDescription("");
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -312,7 +351,77 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
+        campotxtEmail validarEmail = new campotxtEmail();
+        UsuarioControler controler = new UsuarioControler();
+        
+        String nome = txtNome.getText().trim();
+        String sobrenome = txtSobrenome.getText().trim();
+        String nomeCompleto = nome + " " + sobrenome;
+        String tipousuario = null;
+        String email = txtEmail.getText().trim();
+        String senha = new String(pswdSenhaCadastrar.getPassword());
+        String senhaConfirmada = new String(pswdConfirmeSenha.getPassword());
+        
+        if (nome.isEmpty() || sobrenome.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Preencha os campos Nome e Sobrenome", "Erro",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (jRadioButton1.isSelected()) {
+            tipousuario = "professor";
+        } else if (jRadioButton2.isSelected()) {
+            tipousuario = "aluno";
+            
+        } else if (!jRadioButton1.isSelected() && !jRadioButton2.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Você precisa selecionar se é Professor ou Aluno.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (!validarEmail.isEmailValido(email)) {
+            JOptionPane.showMessageDialog(this, "E-mail inválido! Corrija antes de continuar, (ex:usuarioemail@gmail.com)");
+            txtEmail.requestFocus();
+            return;
+        }
+        
+        
+        if (senha.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Insira uma senha", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (senha.length() < 8) {
+            JOptionPane.showMessageDialog(this, "A senha deve conter pelo menos 8 caracteres", "Erro",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (!senha.equals(senhaConfirmada)) {
+            JOptionPane.showMessageDialog(this, "As senhas não coincidem.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
+        boolean sucesso;
+
+        if (tipousuario.equals("aluno")) {
+            AlunoControler alunoControler = new AlunoControler();
+            sucesso = alunoControler.definirSenhaParaAluno(email, senha);
+
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this, "Senha definida com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Erro: a senha já foi definida anteriormente ou o e-mail não é de um aluno válido.");
+            }
+
+        } else {
+            
+            sucesso = controler.cadastrar(nomeCompleto, email, senha, tipousuario);
+
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this, "Usuário cadastrado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Erro ao cadastrar usuário.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void pswdConfirmeSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswdConfirmeSenhaActionPerformed
@@ -338,6 +447,12 @@ public class Cadastro extends javax.swing.JFrame {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void btnVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarLoginActionPerformed
+        Login telaLogin = new Login();  
+        telaLogin.setVisible(true);
+        this.dispose();  // ← fechar a tela atual (Cadastro)
+    }//GEN-LAST:event_btnVoltarLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,6 +492,7 @@ public class Cadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnVoltarLogin;
     private javax.swing.JPanel cadastroPanel;
     private javax.swing.JPanel imagePanel;
     private javax.swing.JLabel jLabel1;

@@ -1,10 +1,13 @@
 
 package view;
 
+import controler.LoginControler;
 import java.util.regex.*;
 import controler.campotxtEmail;
 import javax.swing.JOptionPane;
 import controler.campotxtSenha;
+import java.sql.SQLException;
+
 
 public class Login extends javax.swing.JFrame {
 
@@ -231,20 +234,33 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:         
-        campotxtEmail validarEmail = new campotxtEmail();
-        campotxtSenha validarSenha =  new campotxtSenha();
-        
+        // TODO add your handling code here:
         String email = txtEmail.getText().trim();
-        char[] charSenha = pswdSenha.getPassword();
-        String senha = new String(charSenha);
-        
-        if(validarEmail.isEmailValido(email) && validarSenha.isSenhaValida(senha)){
-             telasBoletimUP telaProf = new telasBoletimUP();
-             telaProf.setVisible(true);
+        String senha = new String(pswdSenha.getPassword());
+
+        if (email.isEmpty() || senha.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        LoginControler controler = new LoginControler();
+        String perfil = controler.autenticar(email, senha);
+
+        if (perfil == null) {
+            JOptionPane.showMessageDialog(this, "Email ou senha inválidos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else if (perfil.equalsIgnoreCase("aluno")) {
+            TelaAluno telaAluno = new TelaAluno(email); 
+            telaAluno.setVisible(true);
+            this.dispose();
+        } else if (perfil.equalsIgnoreCase("professor")) {
+            new telasBoletimUP().setVisible(true);
+            this.dispose();
+        } else if (perfil.equalsIgnoreCase("admin")) {
+            new telasBoletimUP().setVisible(true);
+            this.dispose();
         } else {
-             JOptionPane.showMessageDialog(this, "Email/senha inválido", "Erro", JOptionPane.ERROR_MESSAGE);
-        }            
+            JOptionPane.showMessageDialog(this, "Perfil não reconhecido!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
@@ -259,6 +275,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         Cadastro telaCadastro = new Cadastro();
         telaCadastro.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnEntrar1ActionPerformed
 
     /**

@@ -1,20 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package view;
 
-/**
- *
- * @author User
- */
-public class TelaAluno extends javax.swing.JFrame {
+import controler.LoginControler;
+import javax.swing.JOptionPane;
+import controler.RelatorioAlunoControler;
+import model.RelatorioAluno;
 
-    /**
-     * Creates new form TelaAluno
-     */
-    public TelaAluno() {
+public class TelaAluno extends javax.swing.JFrame {
+    private String emailAluno;
+    
+    public TelaAluno(String emailAluno){
+        this.emailAluno = emailAluno;
         initComponents();
+        carregarDadosAluno();
     }
 
     /**
@@ -25,11 +23,10 @@ public class TelaAluno extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        panelInfoAluno = new javax.swing.JPanel();
         lblNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextPane();
         lblMatricula = new javax.swing.JLabel();
@@ -38,27 +35,33 @@ public class TelaAluno extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextPane();
         panelPresença = new javax.swing.JPanel();
         lblPresenca = new javax.swing.JLabel();
+        txtPresenca = new javax.swing.JTextField();
+        progressBarPresenca = new javax.swing.JProgressBar();
         panelNotas = new javax.swing.JPanel();
         lblQuadroNotas = new javax.swing.JLabel();
         lblA1 = new javax.swing.JLabel();
+        txtA1 = new javax.swing.JTextField();
         lblA2 = new javax.swing.JLabel();
+        txtA2 = new javax.swing.JTextField();
         lblA3 = new javax.swing.JLabel();
         txtA3 = new javax.swing.JTextField();
-        txtA1 = new javax.swing.JTextField();
-        txtA2 = new javax.swing.JTextField();
+        panelQuadroNotas = new javax.swing.JPanel();
+        lblSituacao = new javax.swing.JLabel();
+        txtSituacao = new javax.swing.JTextField();
+        btnVoltarLogin = new javax.swing.JButton();
         lblAreaAluno = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jPanel5.setOpaque(false);
         jPanel5.setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setOpaque(false);
+        panelInfoAluno.setBackground(new java.awt.Color(255, 255, 255));
+        panelInfoAluno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         lblNome.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lblNome.setText("Nome:");
@@ -81,68 +84,85 @@ public class TelaAluno extends javax.swing.JFrame {
         lblPresenca.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lblPresenca.setText("Presença");
 
+        txtPresenca.setEditable(false);
+        txtPresenca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPresencaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelPresençaLayout = new javax.swing.GroupLayout(panelPresença);
         panelPresença.setLayout(panelPresençaLayout);
         panelPresençaLayout.setHorizontalGroup(
             panelPresençaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPresençaLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(lblPresenca)
+                .addGap(136, 136, 136)
+                .addGroup(panelPresençaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtPresenca, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPresenca))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPresençaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(progressBarPresenca, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         panelPresençaLayout.setVerticalGroup(
             panelPresençaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPresençaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblPresenca)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(progressBarPresenca, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addComponent(txtPresenca, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelInfoAlunoLayout = new javax.swing.GroupLayout(panelInfoAluno);
+        panelInfoAluno.setLayout(panelInfoAlunoLayout);
+        panelInfoAlunoLayout.setHorizontalGroup(
+            panelInfoAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInfoAlunoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelInfoAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelPresença, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(panelInfoAlunoLayout.createSequentialGroup()
                         .addComponent(lblNome)
                         .addGap(18, 18, 18)
                         .addComponent(txtNome))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfoAlunoLayout.createSequentialGroup()
                         .addGap(0, 3, Short.MAX_VALUE)
                         .addComponent(lblEmail)
                         .addGap(18, 18, 18)
                         .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfoAlunoLayout.createSequentialGroup()
                         .addComponent(lblMatricula)
                         .addGap(18, 18, 18)
                         .addComponent(txtMatricula)))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        panelInfoAlunoLayout.setVerticalGroup(
+            panelInfoAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInfoAlunoLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelInfoAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNome)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelInfoAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblMatricula)
                     .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(panelInfoAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEmail)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
+                .addGap(31, 31, 31)
                 .addComponent(panelPresença, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(105, 105, 105))
         );
 
-        panelNotas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelNotas.setOpaque(false);
+        panelNotas.setBackground(new java.awt.Color(255, 255, 255));
+        panelNotas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         lblQuadroNotas.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         lblQuadroNotas.setText("Quadro de notas");
@@ -150,8 +170,22 @@ public class TelaAluno extends javax.swing.JFrame {
         lblA1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lblA1.setText("Avaliação 1:");
 
+        txtA1.setEditable(false);
+        txtA1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtA1ActionPerformed(evt);
+            }
+        });
+
         lblA2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lblA2.setText("Avaliação 2:");
+
+        txtA2.setEditable(false);
+        txtA2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtA2ActionPerformed(evt);
+            }
+        });
 
         lblA3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lblA3.setText("Avaliação 3:");
@@ -163,19 +197,41 @@ public class TelaAluno extends javax.swing.JFrame {
             }
         });
 
-        txtA1.setEditable(false);
-        txtA1.addActionListener(new java.awt.event.ActionListener() {
+        panelQuadroNotas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelQuadroNotas.setOpaque(false);
+
+        lblSituacao.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        lblSituacao.setText("Situação");
+
+        txtSituacao.setEditable(false);
+        txtSituacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtA1ActionPerformed(evt);
+                txtSituacaoActionPerformed(evt);
             }
         });
 
-        txtA2.setEditable(false);
-        txtA2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtA2ActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout panelQuadroNotasLayout = new javax.swing.GroupLayout(panelQuadroNotas);
+        panelQuadroNotas.setLayout(panelQuadroNotasLayout);
+        panelQuadroNotasLayout.setHorizontalGroup(
+            panelQuadroNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelQuadroNotasLayout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(txtSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+            .addGroup(panelQuadroNotasLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(lblSituacao)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelQuadroNotasLayout.setVerticalGroup(
+            panelQuadroNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelQuadroNotasLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblSituacao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout panelNotasLayout = new javax.swing.GroupLayout(panelNotas);
         panelNotas.setLayout(panelNotasLayout);
@@ -184,6 +240,7 @@ public class TelaAluno extends javax.swing.JFrame {
             .addGroup(panelNotasLayout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addGroup(panelNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelQuadroNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNotasLayout.createSequentialGroup()
                             .addComponent(lblA2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,8 +274,21 @@ public class TelaAluno extends javax.swing.JFrame {
                 .addGroup(panelNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtA3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblA3))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(panelQuadroNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        btnVoltarLogin.setBackground(new java.awt.Color(102, 255, 102));
+        btnVoltarLogin.setFont(new java.awt.Font("MS UI Gothic", 1, 18)); // NOI18N
+        btnVoltarLogin.setText("voltar para login");
+        btnVoltarLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnVoltarLogin.setBorderPainted(false);
+        btnVoltarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -226,53 +296,89 @@ public class TelaAluno extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addComponent(panelInfoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVoltarLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelInfoAluno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVoltarLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 14;
-        gridBagConstraints.ipady = 31;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(55, 203, 70, 240);
-        jPanel1.add(jPanel5, gridBagConstraints);
-
-        lblAreaAluno.setIcon(new javax.swing.ImageIcon("C:\\Gerenciador de Notas\\Projeto_A3\\Projeto_A3\\BoletimUp\\src\\view\\assets\\areaAluno.png")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 468, 0, 0);
-        jPanel1.add(lblAreaAluno, gridBagConstraints);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAreaAluno)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(155, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lblAreaAluno)
+                .addGap(12, 12, 12)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1317, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 757, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void carregarDadosAluno() {
+        RelatorioAlunoControler controler = new RelatorioAlunoControler();
+        RelatorioAluno aluno = controler.buscarRelatorioPorEmail(emailAluno);
 
+        if (aluno != null) {
+            txtNome.setText(aluno.getNome());
+            txtMatricula.setText(String.valueOf(aluno.getMatricula()));
+            txtEmail.setText(emailAluno);
+
+            txtA1.setText(String.valueOf(aluno.getAvaliacao1()));
+            txtA2.setText(String.valueOf(aluno.getAvaliacao2()));
+            txtA3.setText(String.valueOf(aluno.getAvaliacao3()));
+            
+            txtSituacao.setText(aluno.getSituacao());
+            
+            double presenca = aluno.getMediaPresenca(); 
+
+            txtPresenca.setText(presenca + " %");
+            progressBarPresenca.setValue((int) presenca);
+            progressBarPresenca.setStringPainted(true); 
+            progressBarPresenca.setString(presenca + "% Presença"); 
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Dados do aluno não encontrados.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     private void txtA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtA1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtA1ActionPerformed
@@ -285,44 +391,38 @@ public class TelaAluno extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtA3ActionPerformed
 
+    private void txtPresencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPresencaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPresencaActionPerformed
+
+    private void txtSituacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSituacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSituacaoActionPerformed
+
+    private void btnVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarLoginActionPerformed
+        int resposta = JOptionPane.showConfirmDialog(
+            this,
+            "Tem certeza que deseja sair da sua conta?",
+            "Confirmação de Logout",
+            JOptionPane.YES_NO_OPTION
+        );
+
+        if (resposta == JOptionPane.YES_OPTION) {
+
+            Login telaLogin = new Login();
+            telaLogin.setVisible(true);
+            this.dispose(); 
+        }
+    }//GEN-LAST:event_btnVoltarLoginActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaAluno().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVoltarLogin;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblA1;
     private javax.swing.JLabel lblA2;
@@ -333,13 +433,19 @@ public class TelaAluno extends javax.swing.JFrame {
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblPresenca;
     private javax.swing.JLabel lblQuadroNotas;
+    private javax.swing.JLabel lblSituacao;
+    private javax.swing.JPanel panelInfoAluno;
     private javax.swing.JPanel panelNotas;
     private javax.swing.JPanel panelPresença;
+    private javax.swing.JPanel panelQuadroNotas;
+    private javax.swing.JProgressBar progressBarPresenca;
     private javax.swing.JTextField txtA1;
     private javax.swing.JTextField txtA2;
     private javax.swing.JTextField txtA3;
     private javax.swing.JTextPane txtEmail;
     private javax.swing.JTextPane txtMatricula;
     private javax.swing.JTextPane txtNome;
+    private javax.swing.JTextField txtPresenca;
+    private javax.swing.JTextField txtSituacao;
     // End of variables declaration//GEN-END:variables
 }

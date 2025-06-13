@@ -14,7 +14,11 @@ public class Aluno extends Usuario {
         this.notaA1 = notaA1;
         this.notaA2 = notaA2;
         this.notaA3 = notaA3;          
-}
+    }
+    
+    public Aluno() {
+        super("", "", "", 0); 
+    }
 
     public String getNome() {
         return nome;

@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controler;
 
-/**
- *
- * @author User
- */
+import DAO.UsuarioDAO;
+
 public class UsuarioControler {
+    private UsuarioDAO dao;
+    
+    public UsuarioControler() {
+        dao = new UsuarioDAO();
+    }
+    
+    public boolean cadastrar (String nomeCompleto, String email, String senha, String tipoUsuario) {
+        return dao.cadastrarUsuario(nomeCompleto, email, senha, tipoUsuario);
+    }
     
 }
